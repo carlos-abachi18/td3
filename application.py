@@ -109,17 +109,18 @@ while True:
                         transaction_view(trans)
 
             elif int(choice_transac) == 2:
-                code_customer = input(" entrez le code du client concerné : ")
-                indic = None 
-                for tran in transaction_list:
-                    if  code_customer == tran.code_emmeteur or tran.code_recepteur:
-                        indic = tran
-                        continue
-                if indic != None:
-                     transaction_view(tran)
-                else:
-                    print("⛔aucune transaction ne corespond avec ce code client⛔ ")
-                
+                 code_customer = input(" entrez le code du client concerné : ")
+                 trans_customer = []
+
+                 for tran in transaction_list:
+                     if  code_customer == tran.code_emmeteur or code_customer == tran.code_recepteur:
+                         trans_customer.append(tran)
+                        
+                 if trans_customer == []:
+                    print("     💠 aucune transaction enregistrée au non de ce client 💠")
+                 else:
+                    for tran in trans_customer:     
+                        transaction_view(tran)
 
             elif int(choice_transac) == 3:
                 transction_add()
