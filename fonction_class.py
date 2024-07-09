@@ -16,6 +16,25 @@ class Customers:
 
 
 
+def customer_add2():
+
+    client = {}
+    
+    code = input("entrer le code du client: ")
+    name = input("entrer le nom du client: ")
+    phone =input("entrer le telephone du client: ")
+    address=input("entrer l'adress du client:  ")
+    mail  =input("entrer l'email du client: ")
+    solde =input("entrer le solde du client: ")
+    client["code"] = code 
+    client["name"] = name
+    client["phone"] = phone
+    client["address"] = address
+    client["mail"] = mail
+    client["solde"] = solde
+    customers_list.append(client)
+    print( f"       ✅ le client {client.nom} a bien été ajouté ✅ "  )   
+
 def customer_add():
 
     code = f"00{Customers.num_customers}"
@@ -114,3 +133,8 @@ def transction_add():
     transaction   = Transaction(ref,code_emeteur,code_recepteur,date_trans,montant,canal)
     transaction_list.append(transaction)
     print( f"       ✅ la transaction  {transaction.ref} a bien été ajouté ✅ "  )   
+    
+def change_solde(self):
+    new_solde = input(" entrez le nouveau solde du client ")
+    self.solde = new_solde
+    print("    ✅ changement effectué avec succès ✅ ")

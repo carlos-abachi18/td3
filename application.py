@@ -2,7 +2,7 @@ from fonction_class import *
 
 menu_list = range(1,4)
 menu_cust_list = range(1,7)
-menu_trans_list = range(1,5)
+menu_trans_list = range(1,6)
 
 menu = """ choisissez parmi les 3  operations suivantes : 
           1 - gestion des clients
@@ -21,7 +21,8 @@ menu_transaction = """choisissez parmi les 4 operations suivantes :
             1- afficher toutes les transactions
             2- afficher les transactions d'un client
             3- ajouter la transaction entre deux clients
-            4- modifier le solde d'un client """
+            4- modifier le solde d'un client 
+            5- Retour """
 
 while True:
     print(menu)
@@ -126,6 +127,26 @@ while True:
                 transction_add()
            
             elif int(choice_transac) == 4:
+
+                client_code = input("entrer le code du client pour qui vous souhaiter modifier le solde: ")
+                indic_change = None
+                for cust in customers_list:
+                    if client_code == cust.code:
+                        indic_change = cust 
+                        break
+                if indic_change != None:
+                  change_solde(indic_change)
+                else:
+                   print("     ⛔aucun client avec ce nom⛔")
+
+                # for tran in transaction_list:
+                #      if  code_customer == tran.code_emmeteur or code_customer == tran.code_recepteur:
+                #          trans_customer.append(tran)
+                # for i in trans_customer:
+                #     if code_customer == i.code_emmeteur:
+                #         sortie = int(i.montant )
+                
+            elif int(choice_transac) == 5:
                 break 
     elif int(choice) == 3:
         exit()
